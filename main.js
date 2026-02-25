@@ -1,6 +1,8 @@
+'use strict';
+
 let runningTotal = 0;
 let buffer = "0";
-let previousOperator;
+let previousOperator = null;
 const screen = document.querySelector(".screen");
 
 function buttonClick(value) {
@@ -83,14 +85,14 @@ function handleSymbol(value) {
 }
 
 function rerender() {
-  screen.innerText = buffer;
+  screen.textContent = buffer;
 }
 
 function init() {
   document
     .querySelector(".calc-buttons")
     .addEventListener("click", function (event) {
-      buttonClick(event.target.innerText);
+      buttonClick(event.target.textContent);
     });
 }
 
